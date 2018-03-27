@@ -11,6 +11,19 @@ The plugin is compatible with the following players:
   - [OSMF 2.0](#strobe-media-playback-smp-and-other-osmf-based-players) based players (such as SMP and GrindPlayer)
   - [Video.js][1] 4.6, 4.7, 4.8 (adaptation done here [https://github.com/mangui/video-js-swf][2])
 
+### Building
+---
+
+  - Get AIR SDK from https://www.adobe.com/devnet/air/air-sdk-download.html
+  - Replace the frameworks/libs/player folder as described on https://github.com/nexussays/playerglobal
+  - Build as follows: FLEXPATH=../lib/airsdk bash build.sh
+
+Run `FLEXPATH=../lib/airsdk sh ./build.sh` inside the `build` directory
+
+After a successful build you will find fresh binaries in the `bin/debug` and `bin/release` directories
+
+Reference: https://github.com/mangui/flashls/issues/318
+
 ## Features
 
   - VoD & Live playlists
@@ -103,7 +116,7 @@ The plugin accepts several **optional** configuration options, such as:
     - any I/O error will trigger retries every 1s,2s,4s,8s (exponential, capped to 64s).  Please note specific handling for these 2 values:
         - 0, means no retry, error message will be triggered automatically
         - -1 means infinite retry
-  - `hls_fragmentloadmaxretry` (default 4s): max number of Fragment load retries after I/O Error. 
+  - `hls_fragmentloadmaxretry` (default 4s): max number of Fragment load retries after I/O Error.
     - Any I/O error will trigger retries every 1s,2s,4s,8s (exponential, capped to 64s). Please note specific handling for these 2 values:
         - 0, means no retry, error message will be triggered automatically
         - -1 means infinite retry
@@ -223,15 +236,6 @@ swfobject.embedSWF('StrobeMediaPlayback.swf', 'player', 640, 360, '10.2', null, 
 [master]: https://github.com/mangui/flashls/tree/master
 [dev]: https://github.com/mangui/flashls/tree/dev
 
-
-### Building
----
-
-Run `FLEXPATH=/path/to/flex/sdk sh ./build.sh` inside the `build` directory
-
-`FLEXPATH` should point to your Flex SDK location (i.e. /opt/local/flex/4.6)
-
-After a successful build you will find fresh binaries in the `bin/debug` and `bin/release` directories
 
 ## License
 
